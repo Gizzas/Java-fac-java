@@ -4,10 +4,11 @@
   <title>My application</title>
   <link rel="stylesheet" media="all" href="css/bootstrap.min.css">
   <link rel="stylesheet" media="all" href="css/custom.css">
+  
 </head>
 <body>
   <div class="container">
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-inverse">
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -16,13 +17,14 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="">AWJ Base Project</a>
+          <a class="navbar-brand" href="#">AWJ Base Project</a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li><a href="#">Resource 1</a></li>
-            <li><a href="#">Resource 2</a></li>
+            <li><a href="#Masina">Masini</a></li>
+            <li><a href="#Orase">Jucator</a></li>
+			       <li><a href="#Produse">Tema</a></li>
           </ul>
         </div>
       </div>
@@ -31,110 +33,31 @@
 
   <hr/>
 
+  
   <div class="container">
     <div ng-controller="HomeController">
       <h1>{{ helloWorld }}</h1>
-      <p>Writing this live into the browser...</p>
+      <h1>Tema4</h1>
     </div>
   </div>
 
   <hr/>
 
   <!-- /resources1 -->
-  <div class="container">
-    <h1>Resource 1</h1>
-    <h2>List all resources</h2>
+  <div class="container" ng-controller="HomeController">
+    <h1 id="Masina">Masini</h1>
+    <h2>Lista masini</h2>
     <table class="table table-bordered">
       <tr>
-        <th>Attribute 1</th>
-        <th>Attribute 2</th>
-        <th>Attribute 3</th>
-        <th>Attribute 4</th>
+        <th>Marca</th>
+        <th>ID</th>
+        <th>An</th>
         <th style="width:210px;">Options</th>
       </tr>
-      <tr>
-        <td>Lorem</td>
-        <td>Ipsum</td>
-        <td>Dolor</td>
-        <td>Sit</td>
-        <td>
-          <a href="">
-            <span class="label label-success">
-              Open
-              <span class="glyphicon glyphicon-folder-open"></span>
-            </span>
-          </a>
-          <a href="">
-            <span class="label label-primary">
-              Edit
-              <span class="glyphicon glyphicon-edit"></span>
-            </span>
-          </a>
-          <a href="">
-            <span class="label label-danger">
-              Remove
-              <span class="glyphicon glyphicon-remove"></span>
-            </span>
-          </a>
-        </td>
-      </tr>
-      <tr>
-        <td>Ipsum</td>
-        <td>Lorem</td>
-        <td>Sit</td>
-        <td>Dolor</td>
-        <td>
-          <a href="">
-            <span class="label label-success">
-              Open
-              <span class="glyphicon glyphicon-folder-open"></span>
-            </span>
-          </a>
-          <a href="">
-            <span class="label label-primary">
-              Edit
-              <span class="glyphicon glyphicon-edit"></span>
-            </span>
-          </a>
-          <a href="">
-            <span class="label label-danger">
-              Remove
-              <span class="glyphicon glyphicon-remove"></span>
-            </span>
-          </a>
-        </td>
-      </tr>
-      <tr>
-        <td>Sit</td>
-        <td>Lorem</td>
-        <td>Ipsum</td>
-        <td>Dolor</td>
-        <td>
-          <a href="">
-            <span class="label label-success">
-              Open
-              <span class="glyphicon glyphicon-folder-open"></span>
-            </span>
-          </a>
-          <a href="">
-            <span class="label label-primary">
-              Edit
-              <span class="glyphicon glyphicon-edit"></span>
-            </span>
-          </a>
-          <a href="">
-            <span class="label label-danger">
-              Remove
-              <span class="glyphicon glyphicon-remove"></span>
-            </span>
-          </a>
-        </td>
-      </tr>
-      <tr>
-        <td>Sit</td>
-        <td>Dolor</td>
-        <td>Lorem</td>
-        <td>Ipsum</td>
+      <tr ng-repeat="masina in masini">
+        <td>{{masina.name}}</td>
+        <td>{{masina.id}}</td>
+        <td>{{masina.an}}</td>
         <td>
           <a href="">
             <span class="label label-success">
@@ -160,78 +83,55 @@
 
     <div class="row">
       <div class="col-md-3">
-        <h2>Edit a resource1</h2>
+        <h2 >Editeaza masina</h2>
         <form action="" method="">
           <div class="form-group">
-            <label for="attribute1">Attribute 1</label>
-            <input type="text" class="form-control" id="attribute1" placeholder="Attribute 1">
+            <label for="attribute1">Marca</label>
+            <input type="text" class="form-control" id="attribute1" placeholder="Atributul 1">
           </div>
           <div class="form-group">
-            <label for="attribute2">Attribute 2</label>
-            <input type="text" class="form-control" id="attribute2" placeholder="Attribute 2">
+            <label for="attribute2">ID</label>
+            <input type="text" class="form-control" id="attribute2" placeholder="Atributul 2">
           </div>
           <div class="form-group">
-            <label for="attribute3">Attribute 3</label>
-            <input type="text" class="form-control" id="attribute3" placeholder="Attribute 3">
+            <label for="attribute3">An</label>
+            <input type="text" class="form-control" id="attribute3" placeholder="Atributul 3">
           </div>
-          <div class="form-group">
-            <label for="attribute4">Attribute 4</label>
-            <input type="text" class="form-control" id="attribute4" placeholder="Attribute 4">
-          </div>
-          <button type="submit" class="btn btn-info">Save</button>
+          <button type="submit" class="btn btn-info">Salveaza</button>
         </form>
       </div>
 
 
       <div class="col-md-3 col-md-offset-6">
-        <h2>Add a resource1</h2>
+        <h2>Adauga masina</h2>
         <form action="" method="">
           <div class="form-group">
-            <label for="attribute1">Attribute 1</label>
-            <input type="text" class="form-control" id="attribute1" placeholder="Attribute 1">
+            <label for="attribute1">Marca</label>
+            <input type="text" class="form-control" id="attribute1" placeholder="Atributul 1">
           </div>
           <div class="form-group">
-            <label for="attribute2">Attribute 2</label>
-            <input type="text" class="form-control" id="attribute2" placeholder="Attribute 2">
+            <label for="attribute2">ID</label>
+            <input type="text" class="form-control" id="attribute2" placeholder="Atributul 2">
           </div>
           <div class="form-group">
-            <label for="attribute3">Attribute 3</label>
-            <input type="text" class="form-control" id="attribute3" placeholder="Attribute 3">
+            <label for="attribute3">An</label>
+            <input type="text" class="form-control" id="attribute3" placeholder="Atributul 3">
           </div>
-          <div class="form-group">
-            <label for="attribute4">Attribute 4</label>
-            <input type="text" class="form-control" id="attribute4" placeholder="Attribute 4">
-          </div>
-          <button type="submit" class="btn btn-success">Add</button>
+          <button type="submit" class="btn btn-success">Adauga</button>
         </form>
       </div>
     </div>
 
     <div class="row">
       <div class="col-md-12">
-        <h2>Show a resource1</h2>
+        <h2>Afiseaza masina</h2>
       </div>
       <div class="col-md-2">
-        <img src="http://lorempixel.com/200/200/technics/?id=1" class="img-thumbnail"/>
+        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxQQEhUUEBAPEBUUFRUXFRQUFBAVFBUQFhUWFxQVFhcYHCggGBolGxQXITEhJSktLi46Fx8zODMsNygtLisBCgoKDA0OFAwPFCwcFBosKywrLDcsLCsrLDcsLCsrLCsuLCssKzcrNyw3KywrLCssNyssNywsKysrLCssKzcrK//AABEIAKUBMQMBIgACEQEDEQH/xAAcAAACAgMBAQAAAAAAAAAAAAAAAQQFAgYHAwj/xABGEAACAQIEAwUEBQoEBAcAAAABAgADEQQFEiEGMUETUWFxgSIykbEHQlKSoRQjM0NicoKiwdEWU7LxFWOj4SQlNERFZHP/xAAWAQEBAQAAAAAAAAAAAAAAAAAAAQL/xAAXEQEBAQEAAAAAAAAAAAAAAAAAAREC/9oADAMBAAIRAxEAPwDs0IQgEIQgEIQgEIQgEIQgEIQgEIQgItbn129Y4EX2O88w2nY8jyPj3H+h6+fMPSEIQCEIQCEUIDhFCAQihAcIoQCEIoDhFCA4oRQHCKEBxRXheA45jeED1hCEAhCEAhCEAhCQcxzRaSMyg1WA9mnTuzM3QbXsPEwJ0dpyDN3zrEsSHr0UN/YpKaYXuAIIY+ZM1/GcI5lVKXo1q1r9oaldbOwJIvdieoFh9nxMDv8AaFpw/wDwrmv/ANhfLEX6W+343iqcO5svu1cYm99qtTutbZ4HcIE9TOF/+d0OWJxJ8GZ2/wBQM0/M80xGJquMTVaqysyuGfVpdSdXsE2C37gOUD6WxOdYan+kxWFp/v1qS/NpkmZ0HUEV8O6sNiKlMqynuN7ET544Zw+ExCdjV7SlUGoh1FI9oGtcait9tOynlc2PdumH4bwRHtM7HvJVfktoHUkx1MG3bU2B5HWpIPRTv8D6HfnLVgeRB8iDOStwbgm5Gr6Vk/rRnhU4Fwybipiqa7e2Gw72JNhfSoPrA7FaE4xmfC1ajTc0MyxlwptSYPT1n7N+12v+7NbwfEWaZf7XbYkgH3at69Jh3G5OnzBB8oH0VCajwFx1SzRLFRRrqLtTvdWXq9M9R3g7jxFidtgOEUIDhFCAQihAcULxXgOEV4oDvC8UIBeEUIDheKKA4RQgSIQhAIQhAIQnhja+hCwFzbYeMDHEMGut9h73j4Hw7/8Aec7zLiLFYmsyYHsqVFNu0ddRc9++wB6C3S/hMuM+IDh8MRc3qtoJ7gQS3xAI9TPDBYxKFEC4JAubEXZz0HmbAekDPJDixUqnF4lKlJKfMIiBX94m4Ue6gv8AxL3yhwGYY3GVXanVbDUF9wKiFrH3blwdyNz3Xt4zPi/PNFOjhVYasRU/OnvoqdVb7x9nyUd0vskx1BaYUVEBO7X29o8+fw9IFeyYxf8A31Y+dPD/ANEklM5r0MLWrVqpqdl2jLb2NSoq2U22v2lxfwlpXx9AAk1adhudwdvSUHGy6cEtLk1R6SsP2gGr1PxuIGv5f9MtZbDEUAR3ob/ytz+M2qlisuztPap0S/LVps6k9DyZPQ/GcnxmU78uQnhhKNTDVFq0WKMPgR1Vh1B7oF/jcrTL8d2R/K6jAaqarRptdCL3FQ1Bqtvvp6SfmfG6UiAcvrqTy7SqtO/iAFa8vKls5wgKEU8VQu1Fr7rVABNNj1U7fEGc24tx/biiSNFRe0Sqh5pUUqGB9YG35TxTVxN+wwaWW1y2I5Xva/sDuMsMfjsT2LdpQoFGVg6rVratBFmuQw2t3GaLwBjdGJ0E7VVK/wAQ9pfkR6yVnebVWrVk7V9Adl0XsukG1rdeUDdsq43fStMpTKgABSHb2QLD3mN/WW1QviVvhDQpuNylRWKOOukg+yfQjy5zmWXsCjm51JpIHQqWCt63ZfjNo4fzTQysD4+g2YfD5QLLDYV6FTtPyeglZWuTRNWlUDWsTzANwfUHrNuyXjnfTiRqHLtFWzof+ZTHP95R/DzMWJwy4hRuA1vZfw6A94mr5hgbkrUBR12DDmO7zEDr1CsrqGRldWF1ZSCrKeRBGxEznEsr4mxGWVN7PTY7oSezqd5U/q6nz6g7GdY4fz6jjqXaUHv0ZDs9NvsuOnnyPMXgWsV4oXgO8UUIDhFFeA4RQvAcUV4QHeF4ooDvCKK8DKKKOBKhFCAQihAc1LifNqiVgtO1kX2r9Wax+Wn4zbJzHiXNddeog2tUdWN77IxTb7vpCqziJRjEZH9nV1H1XHusPI/HcdZp/DnDGITEaqoXRTBKsGBDPyWw5jnffuE6VgKmEVLOxB72BG/ny+MpcwIFXTTa+1xpPwt+MI5txRjGGMcn9X+bXwtsfiSxnlh88I6zomJQP+mpU63i6qW+8d/xlVi+HcHV+rUon9ltQ+Dg/gRApstzk1alNCbh3VSP2SRq/C82TjTOLrRufr1G9bafk0qss4USjXSqK6sqFjYqwPukDa57++eHGeX1anZdijVAFfVo9qzNptdRc9D0gR3x6sY9SsNpqtQVEazKQe47H4Hf8JaYXFWp7Adpf697Belhcb+cDZuGMU2HxCEX01GVGHixsjeYY/BmmX0tcO8sdSWwchcQB0qckqW7jsD427zKTKMeVq02rP7K1KbGwTkrhjYL5TpGU55Qx1OqhVmpn83UVwBdW2BFie/zgcMwWJNKorr7yMrDzBB38JLxGJ7WrUqMCuslrIRsx369Ly24t4MrYB7gNVoHdK4B0gfZqEe63z6SqoZfUf3Uc+ISpb42tKLHLMypUadT2KzVXTSCShpqQyuNtjbUi9/KTcFmSLUbSSUDkrsQezJNtj4GVS5DXP6mp5gqP7z2oZDWXfQ331PyEg6HlnE7KiL7It7O4Jew5EjYDYgehlxi8y/KKVwgaqo2sdOofZ3693jOc4PLMR9lR+862/vLWhgcZ0r0KX7tyfxBECdh8xo4xGUb9HpONLofEcwQeo+M17/iVfKcUr4eqRcXW/uul96dQfWH9wRYywXhJmq9q+KPaE3Lqqhr8r3AEtanClKtp/KKlWtpvbdUAva/ugHoOsDZso+lYVrF8IVTYEpV1Mj23DKVG172N99uRuB0TCYlaqLUpnUrgMp8DOTYDhXCUt0pMCdj+drbju96bZlGYHDU1pUtIpoLKhGyr3AjeBuUJTUM9B95D5qQfwNpNpZjTbk4B7m9k/jzgS7wivCA7xRQgO8V4RQHeEUUBwivCA4RXhAlwihAcUIoGGJrimjO3JFZj5KCT8pxr6O8MMVTfEYlrNWrVXYDnqqNqby96dL48rFMtxjA2Iw1ax80I/rPmHEZ7WUlaNarSQHlTdkuQLXOk7wPoPMsipOpNJtVhsDsZouV4MHFinUJ0G6nn15cvGx9JpmQfSBi8O69pUbEUxbUr7tbrZ+d/O86xhqFLFGniqBBV7E/xdSOhvz7rGBOyjhfDUC4FWozNbUj1GZVYXuUD7i9+/uhj+FlO6GeHF1RqTqy9VFx/WVGE4qZNiSIGGP4cdQZrj4un2nZCsofb2W1KSTyAuOc32jxSjj2ip5c7dN56YcYRmLFAxJDe0Q1mA2YA8jte8DSKi1QLONa/ZcB1+6wIkKtl9B/0mFUWFr02qUreQU6f5Z1I4Sg/Igec8anDqNy0nytA5bh8hwwdTeroB9qnUuwYW5dopDL6KeU2vK8FhcPh3GFd2c6nbW2p2OmwtsNhYDkJdVuFx3TzoZO1FrqxTazEW90kXFj5QMeF6ld+8p48pdY/Iabi4RQfAW+Up8aarAJRLUkHIISp9SNyZCp0MXT9pa+I+/UI+BNoEmrl6Uj7eHb96k7K343E9qGHwtTbtiD9mvTQn74sf5o8Jn9T3cQi1fGwRviBb8JJrYGliBelz5lSLMP7+kD0pcMYc8yp8VZwPQG/wAzMm4ZoD6tXzR1b8CL/hKQYVqZtqZR4EiXFDA9GxNYEi90VnHkQoOk+fP5ALkeFJsKtRT3EgN8GW89f8OUulWp8V/tI+YU6NNb18dURe+pTcL/ADJaQsJnWXU//lKTjuuxsPQbQLX/AA2vSu/wWP8Aw2elc+q/95Dfi7LFH/q7/urij8PZkapx9lw2WriHPctKtc/etAtP+AVR7tZD5gj+8RyzEryNJv4v7ia/U+krCgkLRxjEcwafLzAJI9RPCr9I7WJpZdXYd/5z5Cn4d8Da6FXEUudN1t9gq6/dBPylplmerVOlvZb4b+IPKaFT4pzCtc0MNR0oQHYaiKdza5LEB+uyauUhVeJa9GqlfEFK4AdXpslJQFIa1wjPv7N9yG8Bvepa7GZjK7IM2GKoLUFr3ZW3vZkYqd/S/rLC8ineF5jCA7wvFFeA7wivFeBlCY3hAm3hMbwgO8LxQgVnE+XHFYPEUFIDVaNRFJ5a2U6b+F7T5LXCt2hR1YMrFWUgghwbFSO++1p9jTi30r5fTGZK1KmqO+GDuw+tUNRqasRyuBbfwEDm+NwOlQGFPlsUYErvb2rHv2vNq+inPDSc4eobo17A9NWxH3rfeMmU8rovpQBcNdQtTE1ELIKSEs63LbFlvv7PIDxGgOpo1XCOfYchXUkalB2YEdDsZR2PinMCzgE3I2Pj4+vOa5Wpq3gZr+DzUuwFWqx1DYuzGx7iTyEuuyZeYMg82wrDlvMqb1F75mKhE9FxZHSBIw2PqjkTLjCZlX7jKJMxtJVPNvGBueAzGr9dgPDnLKrVFUqLgcyT8j85oS5t4yt4m4nelh37NiruNCkcxq5keNrwN6zDjnLMG5pviFd12YIlSpY8iCQNIO3K9xJ+U/SBlmJ9hMVQUm21RWpG55AGoAD6GfMFoKLwPqPiDJLr2lIatrkDnbvHeJrWHqkEEEgjkRzBnKOHuNsZgqT0aVZuycW0k3NK/NqRvdDz5bb352MhVapvqV3F97hmB87gwO/VV7enqsA42a3f0PrIWE4kq4M6V0aajb6hezhQL3uOaqPuzj+UZ9iKTC2KxIB2P56ry+Mss0zLEbE1nYXB9o6gbbjnKlmug8ScYV8RQq0loBgVJLCkWUqCLlWDkX9JzSljRW0sgdANWlqVNWZKoG19JWynrcEEecxq5ytVSr06qhveFOrYN5gqfnvJmDxmFZg1ahTREuEoKnsC9vbY3u72HvNfwAFhLanPOHgqdlXWlSkGFQqql0YOltaCzKWXddJJ626TNi2kkDKsOt/bNQtSxNQXueVYmp0NiwvbfxgZ3VoVdYoKtJStlW2wOoEfgJry5WerqPKZabec5NMComKwtDsCHRLYd3qOLWCvQLt/C7aTYcucvc+4voYjDMXqPRDPT0fk9Sq2I/R1O1D67KE1FF2J1AkjrbnCZWOtQfAj+hk/CZGKu1NK1W3RELb+hv8AhKJtTiHCMPzuHr4xlINI1HanoN9yxZ6pq+TbeG9pZUcWmPpg1GNLStXTrdqhuvLUdh9Y2AUDwmeXcAYmoBoy6uf/ANRoH/UtIeMpnDVXoNRs9NtLIq6gGHTqvXpA376KM4vUegQQKiGotybE0yFuAeV1Yb9dE6ZecY+i92qZodSlezw9QkHmLmmo/wBU7NIHeK8UIDvCKKA4RXivAyhMbxwJl4XnneOBleK8UICLTl/0oYf/AMZQb/MwtZV8Xo1EqWHjZ50+ah9JeVvWwna0BethXFemBzYKCKqeN0J2HMgQNE4goWp06iIaiH3xY6Q6izJ3HUB/P4Tm+YOrOzInZqQLJv7I0j2fSbDmuaLVoXXEFV5rSGzK3mNxawF9wR3WudVarqJJN+dz3km5lE7LA2IqJRSkalRzZQpAJO55sbcgec25cux+CUB8PVCDkHo61A571MO3+ozWODM1XB4tcQ1M1eyD6VB0+2ylQSe6xYzeMX9L9f8AV4agnizOx/pIKulnit79K9uZpsj79Rp2I9SZ6jHYdtteg9zBl+JI0j4ynznjnEYv9LTwbdx/J6ZYeTNcj0mvnH1PtHyNiPxgdAXChxdGVx3ggj4jb8Z5Pgz3fCaKmZEG+hb96llP4Sww/Err+sqj97TU/FhcekDZGokd81/i1rIgJF9V7dbWNjaWGH4rv7wpP6sh/n1Sq4txIrdk6Lp5qRtzvcbgm/4QKbBUdRHs6u4d5lzUoFVtWw5VeWoKwsfXn5Az2yjBmwFMXdyyruF9lfeNz7tyQL9OfSbpheHaCrVqnF1a6UcMS2GRbdtXsS1lubU+4MLnmd9iHK8XhtJ2Nx08plhqm2k9OUss6wbUihNKpSWogqItQMGCMSLG4F7MrAHqLH60q2WxlEim28nVcU5W1zaRMvTUZZYxhSG6FhtcgqNz4c/95BWisw/2nquaOPqofNRPSjiUcgaHFyB9U8/WTa+X26Ak8haBHp5g72DCjTvyPZsSfIAz07C/6xyT9mmo39TFjKQwyBmsaj7ID0Uc2Ph0lQcZU/zHHkdNvhA+nOGcsw9HCYdjRwyN2FIs5SkGLGmpJLEXJJ6yFjuKKVFnDZpgKS6iQva02cLqNhpUEgabfA87z5rqsX3ZmfxYlrep8Jii3NhvfoN/lvA+iE+lrLqFMA4qvjHF7slCoLm5+2FFhy9JyDMM4TGY2vURaoGIrM4DEAhTa1wCRfvmvfkj9UKj9uyj4taW/CmWNiMSlCk6ipV1AVN2SmgUs77e81g1gNuW4lHTvoVy3SuJxJH6SoKVM/8ALp3LEeZYD+CdMvK3J8AmFo06FEWSmoUcrnvY26k3J85N1yD2vFeeeqMNAzvC8xvCA4RXivAyhMbwgTbQihAcRMURgJmkHMsOaqFRUekT9ZNNx94GS3ng8DjmbfQ7VZ2eljKbaiTZqRQ3PkxHylS30U4lfeqi37KMf6zujTBjA4rS+j3QLNUf0W3zmNbgtR7t28zO0lQeYBkatl1JuaAeW0DhGN4cqJySUuIy+ovNT8J9A18iU+63owvKrGcN350w3lA4O9EjmJ5lJ13G8J02+rpPlKLGcF/Zgc9KzKiLEd2pSfQ/9zNkxfC1RfqyrrZW681Mo2zh+hqFLxWqPXtAG+YlviUXCA1BSbtluVcNYjS+onuI0DTbxvsd5S8IYi6G9g1BixHL81U94+jqCT0E2zirEYPEUVq1axo1KQAeiB+ltsb/AGTYBT3iQaTxvicTiHd8TpKh7UCNO1Mgm229/YF79SZqr8hLTM8QzlmNbtFdtSi5stgwIA5D3rSqbkJQ8NiDTa4k3FY5aq2J0na50hrgdOYtKtjMYF7lVejSbUbuw5bAAeMtkz6ip1N7bHu5AdwmmXigWmYYtKtRqj1KjEnayqtl6KLsbATBaa6C4oVnRbanJYILmwuVAG5PfK6eyYxwCA72IsRc2IPS3KB6HHge7SpL/DqPxYmYtmVQ7ByB3L7I+AkWZIQIEqhRLbknb5zpf0N5SzV6uKe5VFNJCd9VRrFyD4KAP4/Cc4wOKp6gKpqCnf2uzClyO4ath57+U69w/wAfZdTppSpXw6ILKrAjxJJ6kkkknneB0XXHrlHhOIcPV9ysjeREsaeKU8mBkE0NMw0iq3jPVWgSAYTzUzMGA4RXivAyhMbwgToTG8LwHCYwgBE8qiz1mJgR2WeDCTSJ5MkCIYpINKYNT8IHjC8yKTAiBi6g8wD5i8i1ctpt9W3kbSXCBTV8jv7rehEqsZw+etMN5Wm23heBxfibLamBqrisOCoG1RSDbuuw6qRse6ynyg1s0wdUdo6VlqBbBVFNhb7OomzJ3aluPwnb8VhUqqVdQQwIPkec5Znn0SOCzYOuCp3FOpsR4BhzHpA53Xqjkg0juBJsPPqfH5bCDuoEs8dwZjKJs1G/ky/1tK58lrr71CoPS/ylEMmYyWcvqf5bj0MX5BU+wYEWEmjLH+yZmMrbqIFdCT3wBHQzwbDkdDAj2haehpHui7M90DC0dpl2Z7p60sG7e6jH0geSMV90keRI+Ut8v4jxFH3azkdxJMxw/DtZuYC+cuMFwsBu5LeHSBs/D/FtZwNU3LAcQE+8JpWCwYQWUWl1gaJPSQb3hMcHk5Wmv5bRIl3Sge14RQgOEUIE2K8V4QHFeKEBxQvFeA4oXivACJiRMrxXgYMk8mpSRMTAiNSM8ysmmYMIEO0UktTE8Ki2gJRGYgYFoGNRAwswBHcReV1bJaLfqwPLaT2NpiWgUVfhemeRYfCQK/CY6N+Am0s0x1QNGr8LuOWk+khVMgqDmonRSZgyA9IHNXyE9QB6GeLcOA8yPgZ0xqCnpPM4Re6BzX/DCdSfQTNeGqQ+qTOi/kS9wh+RL3QNDpZFTHKkPhJuGyk32S3pNxXBr3T2p0AIGrJkrHpJVLIO+bVTQWmYQQKHD5Io6Szw+XgdJOAmaiBjSpWkgTFRMxAcIoQHCKECZMSYQgYlotcUIBrhrhCAa4tUIQFrhqhCAtUWqOEDHVETCEDAmeVWEIHkImMIQPNx1mBMIQMCYrwhAIgYQgEIQgFplaEICDTNIQge9LlPUCKEDMCZqI4QMhHCEAhCEAhCED//2Q==" class="img-thumbnail"/>
       </div>
       <div class="col-md-10">
-        <h1>Attribute 1</h1>
-        <p>Attribute 2, Attribute 3</p>
-        <h3>Sub resource</h3>
-        <table class="table table-bordered table-striped">
-          <tr>
-            <th>Attribute 5</th>
-            <th>Attribute 6</th>
-          </tr>
-          <tr>
-            <td>Lorem ipsum</td>
-            <td>Lorem</td>
-          </tr>
-          <tr>
-            <td>Lorem ipsum dolor</td>
-            <td>Sir</td>
-          </tr>
-        </table>
+        <h1>Dacia</h1>
+        <p>2, 2010</p>
       </div>
     </div>
   </div>
@@ -240,17 +140,19 @@
 
   <!-- /resources2-->
   <div class="container">
-    <h1>Resource 2</h1>
-    <h2>List all resources</h2>
+    <h1 id="Orase">Jucator</h1>
+    <h2>Listeaza jucatori</h2>
     <table class="table table-bordered">
       <tr>
-        <th>Attribute 1</th>
-        <th>Attribute 2</th>
+        <th>Nume</th>
+        <th>ID</th>
+		    <th>Varsta</th>
         <th style="width:210px;">Options</th>
       </tr>
       <tr>
-        <td>Lorem</td>
-        <td>Sit</td>
+        <td>Tanase</td>
+        <td>1</td>
+		    <td>27</td>
         <td>
           <a href="">
             <span class="label label-success">
@@ -273,8 +175,9 @@
         </td>
       </tr>
       <tr>
-        <td>Ipsum</td>
-        <td>Lorem</td>
+        <td>messi</td>
+        <td>2</td>
+		    <td>28</td>
         <td>
           <a href="">
             <span class="label label-success">
@@ -297,8 +200,9 @@
         </td>
       </tr>
       <tr>
-        <td>Sit</td>
-        <td>Dolor</td>
+        <td>borcea</td>
+        <td>4</td>
+		    <td>40</td>
         <td>
           <a href="">
             <span class="label label-success">
@@ -321,8 +225,9 @@
         </td>
       </tr>
       <tr>
-        <td>Lorem</td>
-        <td>Ipsum</td>
+        <td>banel</td>
+        <td>3</td>
+		    <td>31</td>
         <td>
           <a href="">
             <span class="label label-success">
@@ -348,62 +253,226 @@
 
     <div class="row">
       <div class="col-md-3">
-        <h2>Edit a resource2</h2>
+        <h2>Editeaza jucatori</h2>
         <form action="" method="">
           <div class="form-group">
-            <label for="attribute1">Attribute 1</label>
-            <input type="text" class="form-control" id="attribute1" placeholder="Attribute 1">
+            <label for="attribute1">Nume</label>
+            <input type="text" class="form-control" id="attribute1" placeholder="Atributul 1">
           </div>
           <div class="form-group">
-            <label for="attribute2">Attribute 2</label>
-            <input type="text" class="form-control" id="attribute2" placeholder="Attribute 2">
+            <label for="attribute2">ID</label>
+            <input type="text" class="form-control" id="attribute2" placeholder="Atributul 2">
           </div>
-          <button type="submit" class="btn btn-info">Save</button>
+		  <div class="form-group">
+		  <label for="attribute3">Varsta</label>
+            <input type="text" class="form-control" id="attribute3" placeholder="Atributul 3">
+          </div>
+          <button type="submit" class="btn btn-info">Salveaza</button>
         </form>
       </div>
 
 
       <div class="col-md-3 col-md-offset-6">
-        <h2>Add a resource2</h2>
+        <h2>Adauga jucator</h2>
         <form action="" method="">
           <div class="form-group">
-            <label for="attribute1">Attribute 1</label>
-            <input type="text" class="form-control" id="attribute1" placeholder="Attribute 1">
+            <label for="attribute1">Nume</label>
+            <input type="text" class="form-control" id="attribute1" placeholder="Atributul 1">
           </div>
           <div class="form-group">
-            <label for="attribute2">Attribute 2</label>
-            <input type="text" class="form-control" id="attribute2" placeholder="Attribute 2">
+            <label for="attribute2">ID</label>
+            <input type="text" class="form-control" id="attribute2" placeholder="Atributul 2">
           </div>
-          <button type="submit" class="btn btn-success">Add</button>
+		  <div class="form-group">
+			<label for="attribute3">Varsta</label>
+			<input type="text" class="form-control" id="attirbute3" placeholder="Atriutul 3">
+          <button type="submit" class="btn btn-success">Adauga</button>
         </form>
       </div>
     </div>
 
     <div class="row">
       <div class="col-md-12">
-        <h2>Show a resource2</h2>
+        <h2>Arata un jucator</h2>
       </div>
       <div class="col-md-2">
-        <img src="http://lorempixel.com/200/200/technics/?id=2" class="img-thumbnail"/>
+        <img src="https://www.google.ro/url?sa=i&rct=j&q=&esrc=s&source=imgres&cd=&cad=rja&uact=8&ved=0ahUKEwijzqSjsarKAhVEDSwKHROOAdwQjRwICTAA&url=http%3A%2F%2Fwww.zimbio.com%2FCristian%2BTanase&psig=AFQjCNEPze7D6UMeKoKRFTCxxEz9pp1TmQ&ust=1452898085204755" class="img-thumbnail"/>
       </div>
       <div class="col-md-10">
-        <h1>Attribute 1</h1>
-        <p>Attribute 2, Attribute 3</p>
-        <h3>Sub resource</h3>
-        <table class="table table-bordered table-striped">
-          <tr>
-            <th>Attribute 5</th>
-            <th>Attribute 6</th>
-          </tr>
-          <tr>
-            <td>Lorem ipsum</td>
-            <td>Lorem</td>
-          </tr>
-          <tr>
-            <td>Lorem ipsum dolor</td>
-            <td>Sir</td>
-          </tr>
-        </table>
+        <h1>Tanase</h1>
+        <p>1, 27</p>
+      </div>
+    </div>
+  </div>
+
+  <hr/>
+  
+    <hr/>
+
+  <!-- /resources1 -->
+  <div class="container">
+    <h1 id="Produse">Tema</h1>
+    <h2>Lista teme</h2>
+    <table class="table table-bordered">
+      <tr>
+        <th>Nume</th>
+        <th>ID</th>
+        <th>Nota</th>
+        <th style="width:210px;">Options</th>
+      </tr>
+      <tr>
+        <td>css</td>
+        <td>2</td>
+        <td>10</td>
+        <td>
+          <a href="">
+            <span class="label label-success">
+              Open
+              <span class="glyphicon glyphicon-folder-open"></span>
+            </span>
+          </a>
+          <a href="">
+            <span class="label label-primary">
+              Edit
+              <span class="glyphicon glyphicon-edit"></span>
+            </span>
+          </a>
+          <a href="">
+            <span class="label label-danger">
+              Remove
+              <span class="glyphicon glyphicon-remove"></span>
+            </span>
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>java</td>
+        <td>1</td>
+        <td>8</td>
+        <td>
+          <a href="">
+            <span class="label label-success">
+              Open
+              <span class="glyphicon glyphicon-folder-open"></span>
+            </span>
+          </a>
+          <a href="">
+            <span class="label label-primary">
+              Edit
+              <span class="glyphicon glyphicon-edit"></span>
+            </span>
+          </a>
+          <a href="">
+            <span class="label label-danger">
+              Remove
+              <span class="glyphicon glyphicon-remove"></span>
+            </span>
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>angular</td>
+        <td>3</td>
+        <td>108</td>
+        <td>
+          <a href="">
+            <span class="label label-success">
+              Open
+              <span class="glyphicon glyphicon-folder-open"></span>
+            </span>
+          </a>
+          <a href="">
+            <span class="label label-primary">
+              Edit
+              <span class="glyphicon glyphicon-edit"></span>
+            </span>
+          </a>
+          <a href="">
+            <span class="label label-danger">
+              Remove
+              <span class="glyphicon glyphicon-remove"></span>
+            </span>
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>php</td>
+        <td>4</td>
+        <td>3</td>
+        <td>
+          <a href="">
+            <span class="label label-success">
+              Open
+              <span class="glyphicon glyphicon-folder-open"></span>
+            </span>
+          </a>
+          <a href="">
+            <span class="label label-primary">
+              Edit
+              <span class="glyphicon glyphicon-edit"></span>
+            </span>
+          </a>
+          <a href="">
+            <span class="label label-danger">
+              Remove
+              <span class="glyphicon glyphicon-remove"></span>
+            </span>
+          </a>
+        </td>
+      </tr>
+    </table>
+
+    <div class="row">
+      <div class="col-md-3">
+        <h2>Editeaza tema</h2>
+        <form action="" method="">
+          <div class="form-group">
+            <label for="attribute1">Nume</label>
+            <input type="text" class="form-control" id="attribute1" placeholder="Atributul 1">
+          </div>
+          <div class="form-group">
+            <label for="attribute2">ID</label>
+            <input type="text" class="form-control" id="attribute2" placeholder="Atributul 2">
+          </div>
+          <div class="form-group">
+            <label for="attribute3">Nota</label>
+            <input type="text" class="form-control" id="attribute3" placeholder="Atributul 3">
+          </div>
+          <button type="submit" class="btn btn-info">Salveaza</button>
+        </form>
+      </div>
+
+
+      <div class="col-md-3 col-md-offset-6">
+        <h2>Adauga teme</h2>
+        <form action="" method="">
+          <div class="form-group">
+            <label for="attribute1">Nume</label>
+            <input type="text" class="form-control" id="attribute1" placeholder="Atributul 1">
+          </div>
+          <div class="form-group">
+            <label for="attribute2">ID</label>
+            <input type="text" class="form-control" id="attribute2" placeholder="Atributul 2">
+          </div>
+          <div class="form-group">
+            <label for="attribute3">Nota</label>
+            <input type="text" class="form-control" id="attribute3" placeholder="Atributul 3">
+          </div>
+          <button type="submit" class="btn btn-success">Adauga</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Afiseaza tema</h2>
+      </div>
+      <div class="col-md-2">
+        <img src="https://www.google.ro/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwinspHmsarKAhWG7RQKHTxxCvoQjRwIBw&url=http%3A%2F%2Fwww.jurnalistii.ro%2F30-de-carti-de-citit-pana-la-varsta-de-30-de-ani%2F&bvm=bv.111677986,d.bGg&psig=AFQjCNEUw8jG1kQVNHSczRYJx1I29gFrpw&ust=1452898222077726" class="img-thumbnail"/>
+      </div>
+      <div class="col-md-10">
+        <h1>tema java</h1>
+        <p>3, 10</p>
       </div>
     </div>
   </div>
@@ -413,7 +482,7 @@
   <div class="container">
     <footer class="footer">
       <p class="text-muted pull-left">AWJ Base Project &copy; 2015-2016</p>
-      <p class="text-muted pull-right">Sirbu Nicolae-Cezar, 331AA</p>
+      <p class="text-muted pull-right">Mortasipu Razvan, 332AB</p>
     </footer>
   </div>
 
